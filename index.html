@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+    rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    @theme base {
+      --color-orange-300: hsl(15, 100%, 70%);
+      --color-blue-300: hsl(195, 74%, 62%);
+      --color-pink-400: hsl(348, 100%, 68%);
+      --color-green-400: hsl(145, 58%, 55%);
+      --color-purple-700: hsl(264, 64%, 52%);
+      --color-yellow-300: hsl(43, 84%, 65%);
+      --color-navy-950: hsl(226, 43%, 10%);
+      --color-navy-900: hsl(235, 46%, 20%);
+      --color-purple-500: #5746ea;
+      --color-navy-200: hsl(236, 100%, 87%);
+  }
+  </style>
+  <link rel="stylesheet" href="style.css" type="text/css">
+
+  <title>Frontend Mentor | Time tracking dashboard</title>
+</head>
+
+<body class="rubik-400 md:h-[100vh]">
+  <main class="flex flex-col justify-center items-center md:h-[100vh]">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-5xl">
+      <section class="row-span-2 bg-navy-900 rounded-lg flex flex-col justify-between">
+        <div class="bg-purple-500 rounded-lg flex flex-col items-start justify-center h-full p-8 gap-8">
+          <img src="./images/image-jeremy.png" alt="Jeremy Robson" class="rounded-full border-2 border-white w-16">
+          <div class="flex flex-col gap-1">
+            <p class="text-sm text-navy-200">Report for</p>
+            <h1 class="text-4xl rubik-200">Jeremy Robson</h1>
+          </div>
+        </div>
+        <div class="bg-navy-900 flex flex-col gap-2 p-6 rounded-lg items-start w-full">
+          <button id="daily-btn" class="text-navy-200 text-thin hover:text-white">Daily</button>
+          <button id="weekly-btn" class="text-navy-200 text-thin hover:text-white">Weekly</button>
+          <button id="monthly-btn" class="text-navy-200 text-thin hover:text-white">Monthly</button>
+        </div>
+      </section>
+      <section class="bg-orange-300 pt-10 rounded-lg relative overflow-hidden">
+        <img src="images/icon-work.svg" alt="Work Icon" class="absolute -mt-6 end-2 z-0">
+        <div class="flex flex-col gap-6 bg-navy-900 h-full rounded-lg p-8 relative z-10">
+          <div class="flex justify-between items-center">
+            <h2 class="text-sm">Work</h2>
+            <img src="./images/icon-ellipsis.svg" alt="Ellipsis Icon">
+          </div>
+          <div class="flex flex-col gap-4">
+            <p id="work-hours" class="text-5xl rubik-200">32hrs</p>
+            <p id="work-previous" class="text-xs text-navy-200">Previous - 36hrs</p>
+          </div>
+        </div>
+      </section>
+      <section class="bg-blue-300 pt-10 rounded-lg relative overflow-hidden">
+        <img src="images/icon-play.svg" alt="Play Icon" class="absolute -mt-6 end-2 z-0">
+        <div class="flex flex-col gap-6 bg-navy-900 h-full rounded-lg p-8 relative z-10">
+          <div class="flex justify-between items-center">
+            <h2 class="text-sm">Play</h2>
+            <img src="./images/icon-ellipsis.svg" alt="Ellipsis Icon">
+          </div>
+          <div class="flex flex-col gap-4">
+            <p id="play-hours" class="text-5xl rubik-200">10hrs</p>
+            <p id="play-previous" class="text-xs text-navy-200">Previous - 8hrs</p>
+          </div>
+        </div>
+      </section>
+      <section class="bg-pink-400 pt-10 rounded-lg relative overflow-hidden">
+        <img src="images/icon-study.svg" alt="Study Icon" class="absolute -mt-6 end-2 z-0">
+        <div class="flex flex-col gap-6 bg-navy-900 h-full rounded-lg p-8 relative z-10">
+          <div class="flex justify-between items-center">
+            <h2 class="text-sm">Study</h2>
+            <img src="./images/icon-ellipsis.svg" alt="Ellipsis Icon">
+          </div>
+          <div class="flex flex-col gap-4">
+            <p id="study-hours" class="text-5xl rubik-200">4hrs</p>
+            <p id="study-previous" class="text-xs text-navy-200">Previous - 7hrs</p>
+          </div>
+        </div>
+      </section>
+      <section class="bg-green-400 pt-10 rounded-lg relative overflow-hidden">
+        <img src="images/icon-exercise.svg" alt="Exercise Icon" class="absolute -mt-6 end-2 z-0">
+        <div class="flex flex-col gap-6 bg-navy-900 h-full rounded-lg p-8 relative z-10">
+          <div class="flex justify-between items-center">
+            <h2 class="text-sm">Exercise</h2>
+            <img src="./images/icon-ellipsis.svg" alt="Ellipsis Icon">
+          </div>
+          <div class="flex flex-col gap-4">
+            <p id="exercise-hours" class="text-5xl rubik-200">4hrs</p>
+            <p id="exercise-previous" class="text-xs text-navy-200">Previous - 5hrs</p>
+          </div>
+        </div>
+      </section>
+      <section class="bg-purple-700 pt-10 rounded-lg relative overflow-hidden">
+        <img src="images/icon-social.svg" alt="Social Icon" class="absolute -mt-6 end-2 z-0">
+        <div class="flex flex-col gap-6 bg-navy-900 h-full rounded-lg p-8 relative z-10">
+          <div class="flex justify-between items-center">
+            <h2 class="text-sm">Social</h2>
+            <img src="./images/icon-ellipsis.svg" alt="Ellipsis Icon">
+          </div>
+          <div class="flex flex-col gap-4">
+            <p id="social-hours" class="text-5xl rubik-200">5hrs</p>
+            <p id="social-previous" class="text-xs text-navy-200">Previous - 10hrs</p>
+          </div>
+        </div>
+      </section>
+      <section class="bg-yellow-300 pt-10 rounded-lg relative overflow-hidden">
+        <img src="images/icon-self-care.svg" alt="Self Care Icon" class="absolute -mt-6 end-2 z-0">
+        <div class="flex flex-col gap-6 bg-navy-900 h-full rounded-lg p-6 relative z-10">
+          <div class="flex justify-between items-center">
+            <h2 class="text-sm">Self Care</h2>
+            <img src="./images/icon-ellipsis.svg" alt="Ellipsis Icon">
+          </div>
+          <div class="flex flex-col gap-4">
+            <p id="selfcare-hours" class="text-5xl rubik-200">2hrs</p>
+            <p id="selfcare-previous" class="text-xs text-navy-200">Previous - 2hrs</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script src="script.js" type="module"></script>
+</body>
+
+</html>
